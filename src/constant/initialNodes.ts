@@ -50,6 +50,34 @@ export const initialNodes: Array<Node<TableNodeData>> = [
           name: "user_id",
           type: "INT",
           isForeignKey: true,
+          reference: {
+            table: "users",
+            column: "id",
+          },
+        },
+        {
+          name: "first_name",
+          type: "VARCHAR",
+          isNullable: false,
+        },
+        {
+          name: "last_name",
+          type: "VARCHAR",
+          isNullable: false,
+        },
+        {
+          name: "phone_number",
+          type: "VARCHAR(15)",
+          isNullable: true,
+        },
+        {
+          name: "created_at",
+          type: "TIMESTAMP",
+          defaultValue: "CURRENT_TIMESTAMP",
+        },
+        {
+          name: "updated_at",
+          type: "TIMESTAMP",
         },
       ],
       description: "This table stores user information.",
