@@ -14,31 +14,17 @@ export default function ForeignKeyEdge(props: EdgeProps<Edge<TableNodeData>>) {
   });
 
   return (
-    <>
-      <path
-        id={props.id}
-        style={{
-          ...props.style,
-          stroke: "#888",
-          strokeWidth: 1.5,
-        }}
-        className="react-flow__edge-path"
-        d={edgePath}
-        markerEnd={props.markerEnd}
-      />
-      {props.data?.name && (
-        <text>
-          <textPath
-            href={`#${props.id}`}
-            style={{ fontSize: "11px", fill: "#555", fontWeight: 500 }}
-            startOffset="50%"
-            textAnchor="middle"
-            dominantBaseline="text-before-edge"
-          >
-            {props.data.name}
-          </textPath>
-        </text>
-      )}
-    </>
+    <path
+      id={props.id}
+      style={{
+        ...props.style,
+        stroke: "#888",
+        strokeWidth: 1.5,
+      }}
+      className="react-flow__edge-path"
+      d={edgePath}
+      markerEnd={props.markerEnd}
+      markerStart={props.markerStart}
+    />
   );
 }

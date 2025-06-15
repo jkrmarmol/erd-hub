@@ -30,11 +30,10 @@ export default function Home() {
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         fitView
-        snapToGrid
       >
         <Controls />
-        <MiniMap />
         <Background />
+        <MiniMap />
       </ReactFlow>
     </div>
   );

@@ -48,6 +48,8 @@ export type ColumnDataType =
   | `ENUM(${string})`
   | `SET(${string})`;
 
+export type ReferenceType = "ONE-TO-ONE" | "ONE-TO-MANY" | "MANY-TO-ONE" | "MANY-TO-MANY";
+
 export type Column = {
   name: string;
   type?: ColumnDataType;
@@ -57,8 +59,9 @@ export type Column = {
   isUnique?: boolean;
   defaultValue?: string | null;
   reference?: {
-    table: string; // Will be validated at runtime against existing tables
-    column: string; // Will be validated at runtime against existing columns
+    table: string;
+    column: string;
+    type: ReferenceType;
   };
 };
 
