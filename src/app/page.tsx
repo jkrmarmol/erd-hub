@@ -8,12 +8,14 @@ import {
   useEdgesState,
   useNodesState,
   Connection,
+  BackgroundVariant,
 } from "@xyflow/react";
 import TableNode from "@/components/table-node";
 import { initialNodes } from "@/constant/initialNodes";
 import { initialEdges } from "@/constant/initialEdges";
 import ForeignKeyEdge from "@/components/foreign-key-edge";
 import "@xyflow/react/dist/style.css";
+import CustomPanel from "@/components/custom-panel";
 
 export default function Home() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -39,10 +41,16 @@ export default function Home() {
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         fitView
+        panOnDrag={true}
       >
-        <Controls />
-        <Background />
-        <MiniMap />
+        <Controls position="bottom-right" orientation="horizontal" />
+        <Background
+          color="#ccc"
+          variant={BackgroundVariant.Dots}
+          bgColor="#f2f2f2"
+        />
+        <MiniMap position="bottom-left" />
+        <CustomPanel />
       </ReactFlow>
     </div>
   );
