@@ -9,7 +9,7 @@ import {
   Connection,
   BackgroundVariant,
 } from "@xyflow/react";
-import TableNode from "@/components/table-node";
+import TableNodeV1 from "@/components/table/table-node-v1";
 import { initialNodes } from "@/constant/initialNodes";
 import { initialEdges } from "@/constant/initialEdges";
 import ForeignKeyEdge from "@/components/foreign-key-edge";
@@ -30,7 +30,7 @@ export default function Home() {
     <div className="h-screen w-screen">
       <ReactFlow
         nodeTypes={{
-          tableNode: TableNode,
+          tableNode: TableNodeV1,
         }}
         edgeTypes={{
           foreignKeyEdge: ForeignKeyEdge,
