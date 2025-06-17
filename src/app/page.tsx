@@ -3,7 +3,6 @@ import {
   addEdge,
   Background,
   Controls,
-  MiniMap,
   ReactFlow,
   useEdgesState,
   useNodesState,
@@ -14,8 +13,9 @@ import TableNode from "@/components/table-node";
 import { initialNodes } from "@/constant/initialNodes";
 import { initialEdges } from "@/constant/initialEdges";
 import ForeignKeyEdge from "@/components/foreign-key-edge";
+import CustomBottomPanel from "@/components/custom-bottom-panel";
+import CustomLeftPanel from "@/components/custom-left-panel";
 import "@xyflow/react/dist/style.css";
-import CustomPanel from "@/components/custom-panel";
 
 export default function Home() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -49,8 +49,8 @@ export default function Home() {
           variant={BackgroundVariant.Dots}
           bgColor="#f2f2f2"
         />
-        <MiniMap position="bottom-left" />
-        <CustomPanel />
+        <CustomBottomPanel />
+        <CustomLeftPanel />
       </ReactFlow>
     </div>
   );
