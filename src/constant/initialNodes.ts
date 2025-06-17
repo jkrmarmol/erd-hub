@@ -18,19 +18,19 @@ export const initialNodes: Array<Node<TableNodeData>> = [
           type: "VARCHAR(255)",
           isUnique: true,
         },
-        // {
-        //   name: "password",
-        //   type: "VARCHAR(255)",
-        // },
-        // {
-        //   name: "created_at",
-        //   type: "TIMESTAMP",
-        //   defaultValue: "CURRENT_TIMESTAMP",
-        // },
-        // {
-        //   name: "updated_at",
-        //   type: "TIMESTAMP",
-        // },
+        {
+          name: "password",
+          type: "VARCHAR(255)",
+        },
+        {
+          name: "created_at",
+          type: "TIMESTAMP",
+          defaultValue: "CURRENT_TIMESTAMP",
+        },
+        {
+          name: "updated_at",
+          type: "TIMESTAMP",
+        },
       ],
       description: "This table stores user.",
     },
@@ -53,33 +53,33 @@ export const initialNodes: Array<Node<TableNodeData>> = [
           reference: {
             table: "users",
             column: "id",
-            type: "MANY-TO-MANY",
+            type: "ONE-TO-MANY",
           },
         },
-        // {
-        //   name: "first_name",
-        //   type: "VARCHAR",
-        //   isNullable: false,
-        // },
-        // {
-        //   name: "last_name",
-        //   type: "VARCHAR",
-        //   isNullable: false,
-        // },
-        // {
-        //   name: "phone_number",
-        //   type: "VARCHAR(15)",
-        //   isNullable: true,
-        // },
-        // {
-        //   name: "created_at",
-        //   type: "TIMESTAMP",
-        //   defaultValue: "CURRENT_TIMESTAMP",
-        // },
-        // {
-        //   name: "updated_at",
-        //   type: "TIMESTAMP",
-        // },
+        {
+          name: "first_name",
+          type: "VARCHAR",
+          isNullable: false,
+        },
+        {
+          name: "last_name",
+          type: "VARCHAR",
+          isNullable: false,
+        },
+        {
+          name: "phone_number",
+          type: "VARCHAR(15)",
+          isNullable: true,
+        },
+        {
+          name: "created_at",
+          type: "TIMESTAMP",
+          defaultValue: "CURRENT_TIMESTAMP",
+        },
+        {
+          name: "updated_at",
+          type: "TIMESTAMP",
+        },
       ],
       description: "This table stores user information.",
     },

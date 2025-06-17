@@ -1,5 +1,14 @@
 "use client";
-import { addEdge, Background, Controls, MiniMap, ReactFlow, useEdgesState, useNodesState, Connection } from "@xyflow/react";
+import {
+  addEdge,
+  Background,
+  Controls,
+  MiniMap,
+  ReactFlow,
+  useEdgesState,
+  useNodesState,
+  Connection,
+} from "@xyflow/react";
 import TableNode from "@/components/table-node";
 import { initialNodes } from "@/constant/initialNodes";
 import { initialEdges } from "@/constant/initialEdges";

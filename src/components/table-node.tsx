@@ -6,7 +6,10 @@ export default function TableNode(props: NodeProps<Node<TableNodeData>>) {
     <div className="border border-black p-2 w-72 bg-white relative">
       <p className="text-center font-bold border-b pb-2">{props.data.name}</p>
       {props.data.columns?.map((column, index) => (
-        <div className="flex items-center justify-between border-t py-1 relative" key={index}>
+        <div
+          className="flex items-center justify-between border-t py-1 relative"
+          key={index}
+        >
           <p className="flex items-center">
             {column.name}
             {column.isForeignKey && " 🔗"}

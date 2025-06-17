@@ -48,7 +48,11 @@ export type ColumnDataType =
   | `ENUM(${string})`
   | `SET(${string})`;
 
-export type ReferenceType = "ONE-TO-ONE" | "ONE-TO-MANY" | "MANY-TO-ONE" | "MANY-TO-MANY";
+export type ReferenceType =
+  | "ONE-TO-ONE"
+  | "ONE-TO-MANY"
+  | "MANY-TO-ONE"
+  | "MANY-TO-MANY";
 
 export type Column = {
   name: string;
