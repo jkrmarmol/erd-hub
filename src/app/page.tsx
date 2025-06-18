@@ -8,6 +8,7 @@ import {
   useNodesState,
   Connection,
   BackgroundVariant,
+  PanOnScrollMode,
 } from "@xyflow/react";
 import TableNodeV1 from "@/components/table/table-node-v1";
 import { initialNodes } from "@/constant/initialNodes";
@@ -16,8 +17,10 @@ import ForeignKeyEdge from "@/components/foreign-key-edge";
 import CustomBottomPanel from "@/components/custom-bottom-panel";
 import CustomLeftPanel from "@/components/custom-left-panel";
 import "@xyflow/react/dist/style.css";
+import { useAppSelector } from "@/hook/useTypedSelector";
 
 export default function Home() {
+  const selectSelectedTool = useAppSelector((state) => state.tool.selectedTool);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
@@ -41,7 +44,9 @@ export default function Home() {
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         fitView
-        panOnDrag={true}
+        panOnDrag={selectSelectedTool === "HAND"}
+        panOnScrollMode={PanOnScrollMode.Horizontal}
+        selectNodesOnDrag={true}
       >
         <Controls position="bottom-right" orientation="horizontal" />
         <Background

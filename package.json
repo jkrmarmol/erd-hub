@@ -14,11 +14,13 @@
     "**/*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.8.2",
     "@xyflow/react": "^12.7.0",
     "framer-motion": "^12.18.1",
     "next": "15.3.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0",
     "uuid": "^11.1.0"
   },
   "devDependencies": {

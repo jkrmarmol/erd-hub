@@ -3,27 +3,30 @@ import Image from "next/image";
 import { Panel } from "@xyflow/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { panelToolsBottom } from "@/constant/panelToolsBottom";
+import { useAppDispatch, useAppSelector } from "@/hook/useTypedSelector";
+import { setSelectedTool } from "@/store/toolSlice";
 
 export default function CustomBottomPanel() {
-  const [selectedTool, setSelectedTool] = useState("cursor");
+  const dispatch = useAppDispatch();
+  const selectSelectedTool = useAppSelector((state) => state.tool.selectedTool);
   const [hoveredTool, setHoveredTool] = useState<string | null>(null);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       const key = event.key.toLowerCase();
-      if (key === "v") setSelectedTool("cursor");
-      else if (key === "h") setSelectedTool("pan");
-      else if (key === "t") setSelectedTool("text");
-      else if (key === "c") setSelectedTool("arrow");
-      else if (key === "p") setSelectedTool("pen");
-      else if (key === "f") setSelectedTool("frame");
+      if (key === "v") dispatch(setSelectedTool("SELECT"));
+      else if (key === "h") dispatch(setSelectedTool("HAND"));
+      else if (key === "t") dispatch(setSelectedTool("TEXT"));
+      else if (key === "c") dispatch(setSelectedTool("CONNECT"));
+      else if (key === "p") dispatch(setSelectedTool("DRAW"));
+      else if (key === "f") dispatch(setSelectedTool("FRAME"));
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [dispatch]);
 
   return (
     <Panel
@@ -31,13 +34,13 @@ export default function CustomBottomPanel() {
       className="bg-white rounded-sm shadow-sm flex items-center justify-evenly gap-1 px-2 py-1.5 backdrop-blur-sm bg-opacity-90 border border-gray-100 relative"
     >
       {panelToolsBottom.map((tool) => {
-        const isSelected = selectedTool === tool.id;
+        const isSelected = selectSelectedTool === tool.name;
         return (
           <div
             key={tool.id}
             className="cursor-pointer h-9 w-9 flex items-center justify-center relative group"
-            onClick={() => setSelectedTool(tool.id)}
-            onMouseEnter={() => setHoveredTool(tool.id)}
+            onClick={() => dispatch(setSelectedTool(tool.name))}
+            onMouseEnter={() => setHoveredTool(tool.name)}
             onMouseLeave={() => setHoveredTool(null)}
           >
             {isSelected && (
@@ -55,7 +58,7 @@ export default function CustomBottomPanel() {
             <div className="relative z-10 flex items-center justify-center w-full h-full">
               <Image
                 src={tool.icon}
-                alt={tool.id}
+                alt={tool.name}
                 height={20}
                 width={20}
                 className={`transition-transform ${isSelected ? "" : "group-hover:scale-110"}`}
@@ -63,7 +66,7 @@ export default function CustomBottomPanel() {
             </div>
 
             <AnimatePresence>
-              {hoveredTool === tool.id && (
+              {hoveredTool === tool.name && (
                 <motion.div
                   initial={{ opacity: 0, y: 5, scale: 0.95 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
