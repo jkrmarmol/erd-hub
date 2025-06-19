@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import StoreProvider from "@/app/store-provider";
+import { HeroUIProvider } from "@heroui/react";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -28,7 +29,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <StoreProvider>{children}</StoreProvider>
+        <HeroUIProvider>
+          <StoreProvider>{children}</StoreProvider>
+        </HeroUIProvider>
       </body>
     </html>
   );
