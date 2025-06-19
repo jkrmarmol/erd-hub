@@ -18,6 +18,7 @@ import CustomBottomPanel from "@/components/custom-bottom-panel";
 import CustomLeftPanel from "@/components/custom-left-panel";
 import "@xyflow/react/dist/style.css";
 import { useAppSelector } from "@/hook/useTypedSelector";
+import CustomTopPanel from "@/components/custom-top-panel";
 
 export default function Home() {
   const selectSelectedTool = useAppSelector((state) => state.tool.selectedTool);
@@ -46,7 +47,6 @@ export default function Home() {
         fitView
         panOnDrag={selectSelectedTool === "HAND"}
         panOnScrollMode={PanOnScrollMode.Horizontal}
-        selectNodesOnDrag={true}
       >
         <Controls position="bottom-right" orientation="horizontal" />
         <Background
@@ -54,6 +54,7 @@ export default function Home() {
           variant={BackgroundVariant.Dots}
           bgColor="#f2f2f2"
         />
+        <CustomTopPanel />
         <CustomBottomPanel />
         <CustomLeftPanel />
       </ReactFlow>

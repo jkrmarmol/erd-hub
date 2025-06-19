@@ -1,4 +1,4 @@
-export type ToolNames =
+export type BottomToolNames =
   | "SELECT"
   | "HAND"
   | "TEXT"
@@ -8,14 +8,24 @@ export type ToolNames =
   | "DRAW"
   | "FRAME";
 
-export type Tools = {
+export type BottomTools = {
   id: number;
   icon: string;
   tooltip: string;
   shortcut: string;
-  name: ToolNames;
+  name: BottomToolNames;
 };
 
 export type ToolSliceInitialState = {
-  selectedTool: ToolNames;
+  selectedTool: BottomToolNames;
+};
+
+export type TopToolNames = "EXPORT";
+
+export type TopTools = {
+  id: number;
+  icon: string;
+  tooltip: string;
+  shortcut: string;
+  name: TopToolNames;
 };

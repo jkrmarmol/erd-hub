@@ -1,6 +1,6 @@
-import type { Tools } from "@/types/redux";
+import type { BottomTools } from "@/types/redux";
 
-export const panelToolsBottom: Array<Tools> = [
+export const panelToolsBottom: Array<BottomTools> = [
   {
     id: 1,
     icon: "/svg/cursor.svg",
