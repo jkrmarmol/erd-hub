@@ -3,7 +3,6 @@ import { type Edge, type EdgeProps, getBezierPath } from "@xyflow/react";
 import type { TableNodeData } from "@/types/type";
 
 export default function ForeignKeyEdge(props: EdgeProps<Edge<TableNodeData>>) {
-  // Calculate a smooth Bezier path between source and target
   const [edgePath] = getBezierPath({
     sourceX: props.sourceX,
     sourceY: props.sourceY,
@@ -11,7 +10,7 @@ export default function ForeignKeyEdge(props: EdgeProps<Edge<TableNodeData>>) {
     targetX: props.targetX,
     targetY: props.targetY,
     targetPosition: props.targetPosition,
-    curvature: 0.5, // 0.5 is a good value for DBDesigner-like smoothness
+    curvature: 0.5,
   });
 
   return (
@@ -20,7 +19,7 @@ export default function ForeignKeyEdge(props: EdgeProps<Edge<TableNodeData>>) {
       d={edgePath}
       style={{
         ...props.style,
-        stroke: "#000", // blue-500 for visibility
+        stroke: "#000",
         strokeWidth: 2,
         fill: "none",
       }}

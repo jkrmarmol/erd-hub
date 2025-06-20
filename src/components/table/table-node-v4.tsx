@@ -41,7 +41,6 @@ export default function TableNodeV4(props: NodeProps<Node<TableNodeData>>) {
                   id={`${props.data.name}-${column.name}`}
                   className="w-2 h-2 !bg-black right-0 rounded-full border-2 border-white"
                   style={{ right: -5, top: "50%" }}
-                  isConnectable={true}
                 />
               )}
               {column.isForeignKey && (
@@ -51,7 +50,6 @@ export default function TableNodeV4(props: NodeProps<Node<TableNodeData>>) {
                   id={`${props.data.name}-${column.name}`}
                   className="w-2 h-2 !bg-black left-0 rounded-full border-2 border-white"
                   style={{ left: -5, top: "50%" }}
-                  isConnectable={true}
                 />
               )}
             </div>
