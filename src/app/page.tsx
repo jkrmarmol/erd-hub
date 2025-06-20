@@ -10,7 +10,7 @@ import {
   BackgroundVariant,
   PanOnScrollMode,
 } from "@xyflow/react";
-import TableNodeV1 from "@/components/table/table-node-v1";
+import TableNodeV4 from "@/components/table/table-node-v4";
 import { initialNodes } from "@/constant/initialNodes";
 import { initialEdges } from "@/constant/initialEdges";
 import ForeignKeyEdge from "@/components/foreign-key-edge";
@@ -34,7 +34,7 @@ export default function Home() {
     <div className="h-screen w-screen">
       <ReactFlow
         nodeTypes={{
-          tableNode: TableNodeV1,
+          tableNode: TableNodeV4,
         }}
         edgeTypes={{
           foreignKeyEdge: ForeignKeyEdge,
@@ -51,8 +51,9 @@ export default function Home() {
         <Controls position="bottom-right" orientation="horizontal" />
         <Background
           color="#ccc"
-          variant={BackgroundVariant.Dots}
+          variant={BackgroundVariant.Lines}
           bgColor="#f2f2f2"
+          lineWidth={0.3}
         />
         <CustomTopPanel />
         <CustomBottomPanel />
