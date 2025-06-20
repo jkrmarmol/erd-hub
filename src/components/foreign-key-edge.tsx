@@ -10,7 +10,7 @@ export default function ForeignKeyEdge(props: EdgeProps<Edge<TableNodeData>>) {
     targetX: props.targetX,
     targetY: props.targetY,
     targetPosition: props.targetPosition,
-    curvature: 0.8,
+    curvature: 0.3,
   });
 
   return (
