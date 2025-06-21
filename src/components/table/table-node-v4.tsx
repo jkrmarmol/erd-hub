@@ -1,7 +1,15 @@
 import { type NodeProps, type Node, Handle, Position } from "@xyflow/react";
 import type { TableNodeData } from "@/types/type";
+import { memo } from "react";
 
-export default function TableNodeV4(props: NodeProps<Node<TableNodeData>>) {
+const arePropsEqual = (
+  prevProps: NodeProps<Node<TableNodeData>>,
+  nextProps: NodeProps<Node<TableNodeData>>,
+) => {
+  return prevProps.id === nextProps.id;
+};
+
+const TableNodeV4 = (props: NodeProps<Node<TableNodeData>>) => {
   return (
     <div
       className={`relative ${props.selected ? "outline-2 outline-blue-500" : ""}`}
@@ -60,4 +68,6 @@ export default function TableNodeV4(props: NodeProps<Node<TableNodeData>>) {
       </div>
     </div>
   );
-}
+};
+
+export default memo(TableNodeV4, arePropsEqual);
