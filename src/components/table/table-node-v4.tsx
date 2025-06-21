@@ -1,24 +1,24 @@
-import { memo } from "react";
-import { type NodeProps, type Node, Handle, Position } from "@xyflow/react";
-import type { TableNodeData } from "@/types/type";
+import { memo } from "react"
+import { type NodeProps, type Node, Handle, Position } from "@xyflow/react"
+import type { TableNodeData } from "@/types/type"
 
 const arePropsEqual = (
   prevProps: NodeProps<Node<TableNodeData>>,
-  nextProps: NodeProps<Node<TableNodeData>>,
+  nextProps: NodeProps<Node<TableNodeData>>
 ) => {
   return (
     prevProps.id === nextProps.id && prevProps.selected === nextProps.selected
-  );
-};
+  )
+}
 
 const TableNodeV4 = (props: NodeProps<Node<TableNodeData>>) => {
   return (
     <div
       className={`relative ${props.selected ? "outline-2 outline-blue-500" : ""}`}
     >
-      <div className="relative bg-white   w-[280px]">
-        <div className="px-4 py-3  bg-black">
-          <h3 className="text-center font-bold text-[0.95rem] tracking-wide text-white">
+      <div className="relative w-[280px] bg-white">
+        <div className="bg-black px-4 py-3">
+          <h3 className="text-center text-[0.95rem] font-bold tracking-wide text-white">
             {props.data.name}
           </h3>
         </div>
@@ -27,7 +27,7 @@ const TableNodeV4 = (props: NodeProps<Node<TableNodeData>>) => {
           {props.data.columns?.map((column, index) => (
             <div
               key={index}
-              className={`flex items-center justify-between py-2.5 relative ${
+              className={`relative flex items-center justify-between py-2.5 ${
                 index !== (props.data.columns?.length ?? 0) - 1
                   ? "border-b border-gray-200"
                   : ""
@@ -37,12 +37,12 @@ const TableNodeV4 = (props: NodeProps<Node<TableNodeData>>) => {
                 <p className="text-[0.9rem] font-medium">
                   {column.name}
                   {column.isForeignKey && (
-                    <span className="ml-1.5 text-primary">FK</span>
+                    <span className="text-primary ml-1.5">FK</span>
                   )}
                 </p>
               </div>
 
-              <p className="text-gray-600 text-xs font-medium uppercase tracking-wider">
+              <p className="text-xs font-medium tracking-wider text-gray-600 uppercase">
                 {column.type}
               </p>
 
@@ -51,8 +51,11 @@ const TableNodeV4 = (props: NodeProps<Node<TableNodeData>>) => {
                   type="source"
                   position={Position.Right}
                   id={`${props.data.name}-${column.name}`}
-                  className="w-2 h-2 !bg-black right-0 rounded-full border-2 border-white"
-                  style={{ right: -5, top: "50%" }}
+                  className="right-0 h-2 w-2 rounded-full border-2 border-white !bg-black"
+                  style={{
+                    right: -5,
+                    top: "50%",
+                  }}
                 />
               )}
               {column.isForeignKey && (
@@ -60,8 +63,11 @@ const TableNodeV4 = (props: NodeProps<Node<TableNodeData>>) => {
                   type="target"
                   position={Position.Left}
                   id={`${props.data.name}-${column.name}`}
-                  className="w-2 h-2 !bg-black left-0 rounded-full border-2 border-white"
-                  style={{ left: -5, top: "50%" }}
+                  className="left-0 h-2 w-2 rounded-full border-2 border-white !bg-black"
+                  style={{
+                    left: -5,
+                    top: "50%",
+                  }}
                 />
               )}
             </div>
@@ -69,7 +75,7 @@ const TableNodeV4 = (props: NodeProps<Node<TableNodeData>>) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default memo(TableNodeV4, arePropsEqual);
+export default memo(TableNodeV4, arePropsEqual)

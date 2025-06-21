@@ -6,26 +6,26 @@ export type BottomToolNames =
   | "SHAPE"
   | "CONNECT"
   | "DRAW"
-  | "FRAME";
+  | "FRAME"
 
 export type BottomTools = {
-  id: number;
-  icon: string;
-  tooltip: string;
-  shortcut: string;
-  name: BottomToolNames;
-};
+  id: number
+  icon: string
+  tooltip: string
+  shortcut: string
+  name: BottomToolNames
+}
 
 export type ToolSliceInitialState = {
-  selectedTool: BottomToolNames;
-};
+  selectedTool: BottomToolNames
+}
 
-export type TopToolNames = "EXPORT";
+export type TopToolNames = "EXPORT"
 
 export type TopTools = {
-  id: number;
-  icon: string;
-  tooltip: string;
-  shortcut: string;
-  name: TopToolNames;
-};
+  id: number
+  icon: string
+  tooltip: string
+  shortcut: string
+  name: TopToolNames
+}

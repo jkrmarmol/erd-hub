@@ -1,6 +1,6 @@
-import React from "react";
-import { type Edge, type EdgeProps, getBezierPath } from "@xyflow/react";
-import type { TableNodeData } from "@/types/type";
+import React from "react"
+import { type Edge, type EdgeProps, getBezierPath } from "@xyflow/react"
+import type { TableNodeData } from "@/types/type"
 
 export default function ForeignKeyEdge(props: EdgeProps<Edge<TableNodeData>>) {
   const [edgePath] = getBezierPath({
@@ -11,7 +11,7 @@ export default function ForeignKeyEdge(props: EdgeProps<Edge<TableNodeData>>) {
     targetY: props.targetY,
     targetPosition: props.targetPosition,
     curvature: 0.5,
-  });
+  })
 
   return (
     <path
@@ -27,5 +27,5 @@ export default function ForeignKeyEdge(props: EdgeProps<Edge<TableNodeData>>) {
       markerEnd={props.markerEnd}
       markerStart={props.markerStart}
     />
-  );
+  )
 }

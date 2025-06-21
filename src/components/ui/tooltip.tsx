@@ -1,15 +1,15 @@
 type TooltipProps = {
-  children: React.ReactNode;
-  content: string;
-};
+  children: React.ReactNode
+  content: string
+}
 
 export const Tooltip: React.FC<TooltipProps> = ({ children, content }) => {
   return (
-    <div className="relative group/tooltip">
+    <div className="group/tooltip relative">
       {children}
-      <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white px-2 py-1 rounded text-xs whitespace-nowrap opacity-0 group-hover/tooltip:opacity-100 transition-opacity pointer-events-none z-50">
+      <div className="pointer-events-none absolute -top-8 left-1/2 z-50 -translate-x-1/2 rounded bg-gray-800 px-2 py-1 text-xs whitespace-nowrap text-white opacity-0 transition-opacity group-hover/tooltip:opacity-100">
         {content}
       </div>
     </div>
-  );
-};
+  )
+}

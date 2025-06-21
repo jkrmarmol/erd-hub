@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import {
   addEdge,
   Background,
@@ -9,26 +9,34 @@ import {
   Connection,
   BackgroundVariant,
   PanOnScrollMode,
-} from "@xyflow/react";
-import TableNodeV4 from "@/components/table/table-node-v4";
-import { initialNodes } from "@/constant/initialNodes";
-import { initialEdges } from "@/constant/initialEdges";
-import ForeignKeyEdge from "@/components/foreign-key-edge";
-import CustomBottomPanel from "@/components/custom-bottom-panel";
-import CustomLeftPanel from "@/components/custom-left-panel";
-import "@xyflow/react/dist/style.css";
-import { useAppSelector } from "@/hook/useTypedSelector";
-import CustomTopPanel from "@/components/custom-top-panel";
+} from "@xyflow/react"
+import TableNodeV4 from "@/components/table/table-node-v4"
+import { initialNodes } from "@/constant/initialNodes"
+import { initialEdges } from "@/constant/initialEdges"
+import ForeignKeyEdge from "@/components/foreign-key-edge"
+import CustomBottomPanel from "@/components/custom-bottom-panel"
+import CustomLeftPanel from "@/components/custom-left-panel"
+import "@xyflow/react/dist/style.css"
+import { useAppSelector } from "@/hook/useTypedSelector"
+import CustomTopPanel from "@/components/custom-top-panel"
 
 export default function Home() {
-  const selectSelectedTool = useAppSelector((state) => state.tool.selectedTool);
+  const selectSelectedTool = useAppSelector((state) => state.tool.selectedTool)
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes)
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges)
 
   const onConnect = (params: Connection) => {
-    setEdges((eds) => addEdge({ ...params, type: "foreignKeyEdge" }, eds));
-  };
+    setEdges((eds) =>
+      addEdge(
+        {
+          ...params,
+          type: "foreignKeyEdge",
+        },
+        eds
+      )
+    )
+  }
 
   return (
     <div className="h-screen w-screen">
@@ -60,5 +68,5 @@ export default function Home() {
         <CustomLeftPanel />
       </ReactFlow>
     </div>
-  );
+  )
 }

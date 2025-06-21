@@ -1,9 +1,9 @@
-import { ToolSliceInitialState } from "@/types/redux";
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { ToolSliceInitialState } from "@/types/redux"
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 const initialState: ToolSliceInitialState = {
   selectedTool: "SELECT",
-};
+}
 
 const toolSlice = createSlice({
   name: "tool",
@@ -11,16 +11,16 @@ const toolSlice = createSlice({
   reducers: {
     setSelectedTool: (
       state,
-      action: PayloadAction<ToolSliceInitialState["selectedTool"]>,
+      action: PayloadAction<ToolSliceInitialState["selectedTool"]>
     ) => {
-      state.selectedTool = action.payload;
+      state.selectedTool = action.payload
     },
     resetSelectedTool: (state) => {
-      state.selectedTool = "SELECT";
+      state.selectedTool = "SELECT"
     },
   },
   extraReducers: () => {},
-});
+})
 
-export const { setSelectedTool, resetSelectedTool } = toolSlice.actions;
-export default toolSlice.reducer;
+export const { setSelectedTool, resetSelectedTool } = toolSlice.actions
+export default toolSlice.reducer

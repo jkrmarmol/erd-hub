@@ -1,4 +1,4 @@
-import type { BottomTools } from "@/types/redux";
+import type { BottomTools } from "@/types/redux"
 
 export const panelToolsBottom: Array<BottomTools> = [
   {
@@ -57,4 +57,4 @@ export const panelToolsBottom: Array<BottomTools> = [
     shortcut: "F",
     name: "FRAME",
   },
-];
+]

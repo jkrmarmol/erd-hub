@@ -1,14 +1,14 @@
-import { type NodeProps, type Node, Handle, Position } from "@xyflow/react";
-import type { TableNodeData } from "@/types/type";
+import { type NodeProps, type Node, Handle, Position } from "@xyflow/react"
+import type { TableNodeData } from "@/types/type"
 
 export default function TableNodeV2(props: NodeProps<Node<TableNodeData>>) {
   return (
     <div className="relative">
-      <div className="absolute inset-0 translate-y-[6px] translate-x-[6px] bg-black/90" />
+      <div className="absolute inset-0 translate-x-[6px] translate-y-[6px] bg-black/90" />
 
-      <div className="relative bg-white border-2 border-black w-[280px]">
-        <div className="px-4 py-3 border-b-2 border-black bg-gray-50">
-          <h3 className="text-center font-bold text-[0.95rem] tracking-wide">
+      <div className="relative w-[280px] border-2 border-black bg-white">
+        <div className="border-b-2 border-black bg-gray-50 px-4 py-3">
+          <h3 className="text-center text-[0.95rem] font-bold tracking-wide">
             {props.data.name}
           </h3>
         </div>
@@ -17,7 +17,7 @@ export default function TableNodeV2(props: NodeProps<Node<TableNodeData>>) {
           {props.data.columns?.map((column, index) => (
             <div
               key={index}
-              className={`flex items-center justify-between py-2.5 relative ${
+              className={`relative flex items-center justify-between py-2.5 ${
                 index !== (props.data.columns?.length ?? 0) - 1
                   ? "border-b border-gray-200"
                   : ""
@@ -32,7 +32,7 @@ export default function TableNodeV2(props: NodeProps<Node<TableNodeData>>) {
                 </p>
               </div>
 
-              <p className="text-gray-600 text-xs font-medium uppercase tracking-wider">
+              <p className="text-xs font-medium tracking-wider text-gray-600 uppercase">
                 {column.type}
               </p>
 
@@ -41,8 +41,11 @@ export default function TableNodeV2(props: NodeProps<Node<TableNodeData>>) {
                   type="source"
                   position={Position.Right}
                   id={`${props.data.name}-${column.name}`}
-                  className="w-2 h-2 !bg-blue-500 right-0 rounded-full border-2 border-white"
-                  style={{ right: -5, top: "50%" }}
+                  className="right-0 h-2 w-2 rounded-full border-2 border-white !bg-blue-500"
+                  style={{
+                    right: -5,
+                    top: "50%",
+                  }}
                   isConnectable={true}
                 />
               )}
@@ -51,8 +54,11 @@ export default function TableNodeV2(props: NodeProps<Node<TableNodeData>>) {
                   type="target"
                   position={Position.Left}
                   id={`${props.data.name}-${column.name}`}
-                  className="w-2 h-2 !bg-blue-500 left-0 rounded-full border-2 border-white"
-                  style={{ left: -5, top: "50%" }}
+                  className="left-0 h-2 w-2 rounded-full border-2 border-white !bg-blue-500"
+                  style={{
+                    left: -5,
+                    top: "50%",
+                  }}
                   isConnectable={true}
                 />
               )}
@@ -61,5 +67,5 @@ export default function TableNodeV2(props: NodeProps<Node<TableNodeData>>) {
         </div>
       </div>
     </div>
-  );
+  )
 }

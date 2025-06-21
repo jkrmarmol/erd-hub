@@ -46,31 +46,31 @@ export type ColumnDataType =
   | `DECIMAL(${number},${number})`
   | `NUMERIC(${number},${number})`
   | `ENUM(${string})`
-  | `SET(${string})`;
+  | `SET(${string})`
 
 export type ReferenceType =
   | "ONE-TO-ONE"
   | "ONE-TO-MANY"
   | "MANY-TO-ONE"
-  | "MANY-TO-MANY";
+  | "MANY-TO-MANY"
 
 export type Column = {
-  name: string;
-  type?: ColumnDataType;
-  isPrimaryKey?: boolean;
-  isForeignKey?: boolean;
-  isNullable?: boolean;
-  isUnique?: boolean;
-  defaultValue?: string | null;
+  name: string
+  type?: ColumnDataType
+  isPrimaryKey?: boolean
+  isForeignKey?: boolean
+  isNullable?: boolean
+  isUnique?: boolean
+  defaultValue?: string | null
   reference?: {
-    table: string;
-    column: string;
-    type: ReferenceType;
-  };
-};
+    table: string
+    column: string
+    type: ReferenceType
+  }
+}
 
 export type TableNodeData = {
-  name: string;
-  columns?: Column[];
-  description?: string;
-};
+  name: string
+  columns?: Column[]
+  description?: string
+}

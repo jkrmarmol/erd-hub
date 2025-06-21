@@ -1,4 +1,4 @@
-import type { TopTools } from "@/types/redux";
+import type { TopTools } from "@/types/redux"
 
 export const panelToolsTop: Array<TopTools> = [
   {
@@ -8,4 +8,4 @@ export const panelToolsTop: Array<TopTools> = [
     shortcut: "",
     name: "EXPORT",
   },
-];
+]
