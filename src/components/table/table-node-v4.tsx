@@ -1,12 +1,14 @@
+import { memo } from "react";
 import { type NodeProps, type Node, Handle, Position } from "@xyflow/react";
 import type { TableNodeData } from "@/types/type";
-import { memo } from "react";
 
 const arePropsEqual = (
   prevProps: NodeProps<Node<TableNodeData>>,
   nextProps: NodeProps<Node<TableNodeData>>,
 ) => {
-  return prevProps.id === nextProps.id;
+  return (
+    prevProps.id === nextProps.id && prevProps.selected === nextProps.selected
+  );
 };
 
 const TableNodeV4 = (props: NodeProps<Node<TableNodeData>>) => {
