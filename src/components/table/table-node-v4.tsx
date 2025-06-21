@@ -3,7 +3,9 @@ import type { TableNodeData } from "@/types/type";
 
 export default function TableNodeV4(props: NodeProps<Node<TableNodeData>>) {
   return (
-    <div className="relative">
+    <div
+      className={`relative ${props.selected ? "outline-2 outline-blue-500" : ""}`}
+    >
       <div className="relative bg-white   w-[280px]">
         <div className="px-4 py-3  bg-black">
           <h3 className="text-center font-bold text-[0.95rem] tracking-wide text-white">
