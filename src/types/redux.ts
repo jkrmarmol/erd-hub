@@ -29,3 +29,7 @@ export type TopTools = {
   shortcut: string
   name: TopToolNames
 }
+
+export type NodeSliceInitialState = {
+  selectedNode: string
+}

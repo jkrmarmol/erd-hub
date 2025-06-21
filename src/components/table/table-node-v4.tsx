@@ -1,6 +1,8 @@
 import { memo } from "react"
 import { type NodeProps, type Node, Handle, Position } from "@xyflow/react"
 import type { TableNodeData } from "@/types/type"
+import { useAppDispatch } from "@/hook/useTypedSelector"
+import { setSelectedNode } from "@/store/nodeSlice"
 
 const arePropsEqual = (
   prevProps: NodeProps<Node<TableNodeData>>,
@@ -12,6 +14,10 @@ const arePropsEqual = (
 }
 
 const TableNodeV4 = (props: NodeProps<Node<TableNodeData>>) => {
+  const dispatch = useAppDispatch()
+  if (props.selected) {
+    dispatch(setSelectedNode(props.id))
+  }
   return (
     <div
       className={`relative ${props.selected ? "outline-2 outline-blue-500" : ""}`}
