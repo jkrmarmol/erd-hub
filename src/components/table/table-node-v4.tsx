@@ -57,9 +57,9 @@ const TableNodeV4 = (props: NodeProps<Node<TableNodeData>>) => {
                   type="source"
                   position={Position.Right}
                   id={`${props.data.name}-${column.name}`}
-                  className="right-0 h-2 w-2 rounded-full border-2 border-white !bg-black"
+                  className="invisible right-10 h-2 w-2 rounded-full border-2 border-white !bg-black"
                   style={{
-                    right: -5,
+                    right: -16,
                     top: "50%",
                   }}
                 />
@@ -69,9 +69,9 @@ const TableNodeV4 = (props: NodeProps<Node<TableNodeData>>) => {
                   type="target"
                   position={Position.Left}
                   id={`${props.data.name}-${column.name}`}
-                  className="left-0 h-2 w-2 rounded-full border-2 border-white !bg-black"
+                  className="invisible left-10 h-2 w-2 rounded-full border-2 border-white !bg-black"
                   style={{
-                    left: -5,
+                    left: -16,
                     top: "50%",
                   }}
                 />

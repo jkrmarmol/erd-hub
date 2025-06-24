@@ -1,6 +1,5 @@
 import type { Node, Edge } from "@xyflow/react"
 import type { TableNodeData } from "@/types/type"
-import { MarkerType } from "@xyflow/react"
 
 export function generateEdges(nodes: Array<Node<TableNodeData>>): Array<
   Edge<{
@@ -37,12 +36,8 @@ export function generateEdges(nodes: Array<Node<TableNodeData>>): Array<
               style: {
                 strokeWidth: 2,
               },
-              markerStart: {
-                type: MarkerType.Arrow,
-              },
-              markerEnd: {
-                type: MarkerType.Arrow,
-              },
+              markerStart: "many-left",
+              markerEnd: "many-right",
             })
           }
 
@@ -57,6 +52,8 @@ export function generateEdges(nodes: Array<Node<TableNodeData>>): Array<
               style: {
                 strokeWidth: 2,
               },
+              markerStart: "one-left",
+              markerEnd: "circle",
             })
           }
 
@@ -68,12 +65,12 @@ export function generateEdges(nodes: Array<Node<TableNodeData>>): Array<
               sourceHandle,
               targetHandle,
               type: "foreignKeyEdge",
+
               style: {
                 strokeWidth: 2,
               },
-              markerStart: {
-                type: MarkerType.Arrow,
-              },
+              markerStart: "many-left",
+              markerEnd: "circle",
             })
           }
 
@@ -88,9 +85,8 @@ export function generateEdges(nodes: Array<Node<TableNodeData>>): Array<
               style: {
                 strokeWidth: 2,
               },
-              markerEnd: {
-                type: MarkerType.Arrow,
-              },
+              markerStart: "one-left",
+              markerEnd: "many-right",
             })
           }
 
