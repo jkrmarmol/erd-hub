@@ -16,15 +16,12 @@ const arePropsEqual = (
 const TableNodeV4 = (props: NodeProps<Node<TableNodeData>>) => {
   const dispatch = useAppDispatch()
 
-  useEffect(() => {
-    if (props.selected) {
-      dispatch(setSelectedNode(props.id))
-    }
-  }, [props.selected, props.id, dispatch])
-
   return (
     <div
       className={`relative ${props.selected ? "outline-2 outline-blue-500" : ""}`}
+      onDoubleClick={() => {
+        dispatch(setSelectedNode(props.id))
+      }}
     >
       <div className="relative w-[280px] bg-white">
         <div className="bg-black px-4 py-3">
