@@ -1,4 +1,4 @@
-import { memo, useEffect } from "react"
+import { memo } from "react"
 import { type NodeProps, type Node, Handle, Position } from "@xyflow/react"
 import type { TableNodeData } from "@/types/type"
 import { useAppDispatch } from "@/hook/useTypedSelector"
