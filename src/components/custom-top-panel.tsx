@@ -3,8 +3,18 @@ import Image from "next/image"
 import { panelToolsTop } from "@/constant/panelToolsTop"
 import { Button } from "@heroui/button"
 import { Tooltip } from "@heroui/tooltip"
+import {
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+} from "@heroui/react"
+import { useState } from "react"
+import { erdExport } from "@/constant/erdExport"
 
 export default function CustomTopPanel() {
+  const [openModal, setOpenModal] = useState(false)
   return (
     <Panel
       position="top-right"
@@ -20,6 +30,7 @@ export default function CustomTopPanel() {
             color="foreground"
           >
             <Button
+              onPress={() => setOpenModal(true)}
               variant="light"
               color="default"
               size="sm"
@@ -31,6 +42,32 @@ export default function CustomTopPanel() {
           </Tooltip>
         )
       })}
+      <Modal isOpen={openModal} onClose={() => setOpenModal(!openModal)}>
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader className="flex flex-col gap-1">
+                Export As
+              </ModalHeader>
+              <ModalBody>
+                {erdExport.map((exportType, index) => (
+                  <Button variant="faded" key={index}>
+                    {exportType}
+                  </Button>
+                ))}
+              </ModalBody>
+              <ModalFooter>
+                <Button color="danger" variant="light" onPress={onClose}>
+                  Close
+                </Button>
+                <Button color="primary" onPress={onClose}>
+                  Action
+                </Button>
+              </ModalFooter>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
     </Panel>
   )
 }
