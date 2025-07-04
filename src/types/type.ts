@@ -1,3 +1,5 @@
+import { erdExport } from "@/constant/erdExport"
+
 export type ColumnDataType =
   // Numeric types
   | "INT"
@@ -74,3 +76,5 @@ export type TableNodeData = {
   columns?: Column[]
   description?: string
 }
+
+export type DBExportType = (typeof erdExport)[number]

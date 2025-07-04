@@ -12,9 +12,46 @@ import {
 } from "@heroui/react"
 import { useState } from "react"
 import { erdExport } from "@/constant/erdExport"
+import { DBExportType } from "@/types/type"
+import { initialNodes } from "@/constant/initialNodes"
+import {
+  DatabaseExportService,
+  FileDownloadService,
+} from "@/utils/exportToDatabase"
 
 export default function CustomTopPanel() {
   const [openModal, setOpenModal] = useState(false)
+  const [isExporting, setIsExporting] = useState(false)
+  const [currentExportType, setCurrentExportType] =
+    useState<DBExportType | null>(null)
+
+  const onHandleExport = async (exportType: DBExportType) => {
+    setIsExporting(true)
+    setCurrentExportType(exportType)
+    try {
+      const exportResult = DatabaseExportService.exportToDatabase(
+        initialNodes,
+        exportType
+      )
+
+      // Download the file using the new service
+      FileDownloadService.downloadExportResult(exportResult)
+
+      // Close the modal after successful export
+      setOpenModal(false)
+
+      console.log(`Successfully exported to ${exportType}`)
+    } catch (err) {
+      console.error("Error exporting ERD:", err)
+      // You might want to show a toast notification here
+      alert(
+        `Error exporting to ${exportType}: ${err instanceof Error ? err.message : "Unknown error"}`
+      )
+    } finally {
+      setIsExporting(false)
+      setCurrentExportType(null)
+    }
+  }
   return (
     <Panel
       position="top-right"
@@ -51,7 +88,13 @@ export default function CustomTopPanel() {
               </ModalHeader>
               <ModalBody>
                 {erdExport.map((exportType, index) => (
-                  <Button variant="faded" key={index}>
+                  <Button
+                    variant="faded"
+                    key={index}
+                    onPress={onHandleExport.bind(null, exportType)}
+                    isDisabled={isExporting}
+                    isLoading={isExporting && currentExportType === exportType}
+                  >
                     {exportType}
                   </Button>
                 ))}
